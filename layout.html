@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>🔵 Chat App</h1>
+        {% if session.get('username') %}
+            <div class="nav-right">
+                <span>👤 {{ session['username'] }}</span>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

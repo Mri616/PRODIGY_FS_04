@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="chat-container">
+    <div class="sidebar">
+        <h3>Rooms</h3>
+        <ul id="room-list"></ul>
+
+        <form id="room-form">
+            <input type="text" id="room-name" placeholder="New room name" required>
+            <button type="submit">Create/Join</button>
+        </form>
+
+        <h4>Online Users</h4>
+        <ul id="user-list"></ul>
+    </div>
+
+    <div class="chat-main">
+        <div id="chat-header"><strong>Room:</strong> <span id="current-room">Lobby</span></div>
+        <div id="chat-box"></div>
+
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message" required autocomplete="off">
+            <input type="file" id="image-upload" accept="image/*">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
